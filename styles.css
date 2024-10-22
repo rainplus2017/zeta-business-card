@@ -1,0 +1,236 @@
+@font-face {
+  font-family: "Lato";
+  src: url("webfont.eot"); /* IE9 Compat Modes */
+  src: url("/assets/fonts/Montserrat-Medium.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+
+/* CENTERING */
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+/* /end */
+body {
+  background-image: url(/assets/images/bg.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+h3 {
+  position: relative;
+  left: 45%;
+}
+/* THE FRONT */
+.front {
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: -29px -2px 18px -24px rgba(208, 219, 59, 0.56);
+  -moz-box-shadow: -29px -2px 18px -24px rgba(208, 219, 59, 0.56);
+  box-shadow: -1px -4px 178px 1px rgba(208, 219, 59, 0.56);
+}
+
+.front img {
+  width: 70%;
+}
+/* /end */
+/* THE BACK */
+.back {
+  background-color: #ffffff !important;
+  width: 100%;
+  display: flex;
+}
+
+.back-right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: end;
+  text-align: end;
+  margin-right: 10%;
+}
+
+.back img {
+  width: 30%;
+  margin-left: 5%;
+  border-right: 1.5px solid #454545;
+  margin: 60px 25px 60px 20px;
+  padding-right: 20px;
+}
+
+.back-right > .h1-right h1,
+.back-right > .h1-right p,
+.back-right {
+  color: #000;
+  font-family: "Lato";
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.back-right > .h1-right p {
+  font-size: 16px !important;
+}
+
+.back-right > .h1-right h1 {
+  text-shadow: 0.0001px 0.0001px 0.0001px #000000;
+}
+
+.back-right > .h1-right h1 > span {
+  font-weight: 400;
+  font-family: "Lato";
+  color: #757575;
+}
+
+.back-right > .h1-right h1 {
+  margin: 0%;
+}
+.back-right > .h1-right p {
+  font-size: 14px;
+  padding-bottom: 1px;
+  margin: 0px;
+}
+.back > .back-right .bold {
+  font-weight: bold !important;
+  color: #000000;
+  padding-right: 2px;
+  text-shadow: 0.0001px 0.0001px 0.0001px #000000;
+  letter-spacing: 1.2px;
+}
+
+.back > .back-right .contact {
+  font-weight: 200 !important;
+  color: rgb(58, 58, 58);
+  text-shadow: 0.0001px 0.001px 0.001px rgb(107, 107, 107);
+}
+
+.back .font-a-icons span,
+.back .font-a-icons .link,
+.back .font-a-icons .fa,
+.back .font-a-icons a {
+  color: #000;
+}
+.back .font-a-icons .fa {
+  font-size: 16px;
+}
+.back .font-a-icons span,
+.back .font-a-icons a {
+  font-size: 14px;
+}
+.back .font-a-icons a,
+.back .font-a-icons .website {
+  text-decoration: none;
+}
+.back .font-a-icons a:hover,
+.back .font-a-icons .website:hover {
+  color: #3f3f3f;
+}
+
+/* /end */
+/* THE FLIP EFFECT */
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000px;
+}
+
+/* flip the pane when hovered */
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
+.flip-container,
+.front,
+.back {
+  height: 350px;
+  width: 600px;
+}
+
+@media (max-width: 720px) {
+  body {
+    background-position: bottom;
+  }
+
+  .flip-container,
+  .front,
+  .back {
+    max-width: 320px;
+  }
+
+  .back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+  }
+
+  .back img {
+    width: 50%;
+    margin-left: 5%;
+    border-right: 0;
+    margin: auto;
+    padding-right: 0;
+  }
+
+  .back-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+    margin-right: 0;
+  }
+
+  .h1-right {
+    padding: 15px !important;
+    text-align: center;
+  }
+
+  .back-right > .h1-right h1 {
+    font-size: 19px !important;
+  }
+
+  .back-right > .h1-right p {
+    font-size: 14px !important;
+  }
+}
+
+.flipper {
+  transition: 0.5s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+}
+.front {
+  z-index: 2;
+  /* firefox 31 */
+  transform: rotateY(0deg);
+}
+.back {
+  background-color: #000;
+}
+.back {
+  transform: rotateY(180deg);
+}
+.vertical.flip-container {
+  position: relative;
+}
+.vertical .back {
+  transform: rotateX(180deg);
+}
+.vertical.flip-container .flipper {
+  transform-origin: 100% 400x;
+}
+.vertical.flip-container:hover .flipper {
+  transform: rotateX(-180deg);
+}
